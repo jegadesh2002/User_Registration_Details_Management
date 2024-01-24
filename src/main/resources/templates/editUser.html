@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<title>Edit User Registration Form</title>
+		<style>
+			tr,td{
+				padding:10px;
+				margin-top:20px;
+				
+			}
+			table{
+				background-color:lightgrey;
+			}
+			body{
+				background-color:lightgreen;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div align="center">
+			<h2>Edit User Registration Form</h2>
+			</br>
+			<form action="#" th:action="@{/save}" th:object="${user}" method="post">
+				<table>
+					<tr>
+						<td>User Id:</td>
+						<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+					
+					</tr>
+					<tr>
+						<td>First Name:</td>
+						<td><input type="text" th:field="*{firstName}" /></td>
+					</tr>
+					<tr>
+						<td>Last name:</td>
+						<td><input type="text" th:field="*{lastName}"/></td>
+					</tr>
+					<tr>
+						<td>User Name:</td>
+						<td><input type="text" th:field="*{userName}"/></td>
+					
+					</tr>
+					<tr>
+						<td>Password:</td>
+						<td><input type="text" th:field="*{password}" /></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><input type="text" th:field="*{email}" /></td>
+					
+					</tr>
+					<tr>
+						<td>Mobile num:</td>
+						<td><input type="text" th:field="*{mobno}" /></td>
+					</tr>
+					
+					<tr>
+						<td>City:</td>
+						<td>
+							<select th:field="*{city}">
+								<option th:each="c:${cityList}" th:value="${c}" th:text="${c}"/>
+							</select>
+						</td>
+						
+					</tr>
+					
+					<tr align="center">
+						<td colspan="2"><button type="submit" class=" text-white btn btn-success">Register</button></td>
+					</tr>
+				</table>	
+			
+			</form>
+			
+		</div>
+	
+	</body>
+
+</html>

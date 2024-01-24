@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http:/www.thymeleaf.org">
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		
+		<title>User Registration Forms List</title>
+		<style>
+			.bground{
+				background-color:#E0AED0;
+				
+			}
+			tr,th,td,table{
+					border:2px solid;
+				    border-collapse: collapse;
+				  
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container bground text-center p-5">
+			<h1>Registration Forms Details</h1>
+			<a href="/new">Add New Registration</a>
+			<div align="center" class="mt-4">
+				<table cellpadding="10">
+					<thead>
+						<tr>
+							<th>User Id</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>User Name</th>
+							<th>Password</th>
+							<th>Email</th>
+							<th>Mobile no</th>
+							<th>City</th>
+							<th>Action</th>
+					
+						</tr>				
+					</thead>
+					<tbody>
+						<tr th:each="list:${listUserdetails}">
+							<td th:text="${list.id}"></td>
+							<td th:text="${list.firstName}"></td>
+							<td th:text="${list.lastName}"></td>
+							<td th:text="${list.userName}"></td>
+							<td th:text="${list.password}"></td>
+							<td th:text="${list.email}"></td>
+							<td th:text="${list.mobno}"></td>
+							<td th:text="${list.city}"></td>
+							<td>
+								<a th:href="@{'/edit/'+${list.id}}">Edit</a>&nbsp;&nbsp;&nbsp;
+								<a th:href="@{'/delete/'+${list.id}}">Delete</a>
+							</td>
+						</tr>
+					
+					</tbody>
+					
+					
+			
+				</table>
+			</div>
+			
+			
+		</div>
+	
+	</body>
+
+</html>
